@@ -1,0 +1,22 @@
+.edit-profile-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-wrapper {
+    width: 96px;
+    height: 96px;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+}
+
+.avatar-wrapper > img {
+    height: 100%;
+}
+
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+}

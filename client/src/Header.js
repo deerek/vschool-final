@@ -12,7 +12,10 @@ import './app.css';
         return (
             <div className="header-wrapper">
                 <Link to="/">
-                    <h1>Extreeem</h1>
+                    <h1>Athl33t</h1>
+                </Link>
+                <Link to="/onboard">
+                    <h4>onboard</h4>
                 </Link>
                 <Link to="/profile">
                     <Avatar />

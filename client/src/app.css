@@ -64,42 +64,23 @@
     align-items: center;
 } */
 
-.profile-wrapper {
-    display: grid;
-    grid-template-areas: 
-    "h h"
-    "u f";
-}
 
-.profile-wrapper > .header-wrapper {
-    grid-area: h;
-}
 
-.profile-wrapper > .profile-user-info {
-    grid-area: u;
-}
 
-.profile-wrapper > .profile-feed-wrapper {
-    grid-area: f;
-}
 
-.user-info-flex {
+
+
+.create-button {
+    position: fixed;
+    bottom: 64px;
+    width: 96px;
+    height: 96px;
+    left: 50%;
+    margin-left: -48px;
+    border-radius: 48px;
+    background-color: blueviolet;
     display: flex;
+    justify-content: center;
     align-items: center;
-}
-
-.user-names-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-.follows-bar-wrapper {
-    display: flex;
-    width: 500px;
-    justify-content: space-around;
-}
-
-.sponsors-bar-wrapper {
-    display: flex;
-    
+    color: #ffffff;
 }

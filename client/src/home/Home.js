@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Feed from './components/Feed';
 import Header from '../Header';
+import CreateButton from '../CreateButton';
 
 // import '../app.css'
 
@@ -21,6 +22,7 @@ class Home extends Component {
             <div>
                 <Header />
                 <Feed />
+                <CreateButton />
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-import "../../app.css";
+import "../profile.css";
 
 function FollowsBar(props) {
     return (
