@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import Feed from './components/Feed';
 import Header from '../Header';
@@ -10,18 +11,27 @@ class Home extends Component {
     constructor() {
         super();
         this.state = {
-            content: []
+            content: [] 
         }
     }
 
-    // GET REQUEST WILL BE HANDLED HERE
-    // MAKE IT AN ACTION CREATOR (or reducer?) IN REDUX
+    // GET REQUEST FOR ALL "CONTENT" -----> MAKE IT AN ACTION CREATOR (or reducer?) IN REDUX
+    componentDidMount() {
+        axios
+            .get('/content')
+            .then(data => {
+                this.setState({ content: data.data });
+            })
+            .catch(err => {
+                console.log('Error GETting ALL content')
+            });
+    }
     
     render() {
         return (
             <div>
                 <Header />
-                <Feed />
+                <Feed data={this.state.content} />
                 <CreateButton />
             </div>
         )
