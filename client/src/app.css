@@ -1,0 +1,86 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.header-wrapper > a {
+    text-decoration: none;
+    font-family: sans-serif;
+    color: #212121;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 18pt;
+}
+
+.avatar-wrapper {
+    height: 48px;
+    width: 48px;
+    background-image: url(https://source.unsplash.com/1600x900/?person,people,face,portrait);
+    background-size: cover;
+    background-position: center;
+    margin-right: 16px;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+}
+
+.feed-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-column-gap: 16px;
+    grid-row-gap: 48px;
+    padding: 0 50px;
+}
+
+.card-media > img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-info-top {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    margin-bottom: 8px;
+}
+
+.card-info-top .avatar-wrapper {
+    height: 36px;
+    width: 36px;
+}
+
+.card-info-top > h6 {
+    margin-left: auto;
+}
+
+.card-info-wrapper > p {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+/* .user-info-wrapper {
+    display: flex;
+    align-items: center;
+} */
+
+
+
+
+
+
+
+.create-button {
+    position: fixed;
+    bottom: 64px;
+    width: 96px;
+    height: 96px;
+    left: 50%;
+    margin-left: -48px;
+    border-radius: 48px;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}

@@ -1,0 +1,82 @@
+.create-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: space-around;
+}
+
+
+.create-header-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+}
+
+
+/**************************         POST TYPE       ***************************/
+
+.post-type-wrapper {
+    width: 100%;
+}
+
+.post-type-wrapper > ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    background-color: #212121;
+    color: #ffffff;
+    -webkit-padding-start: 0;
+    -webkit-margin-before: 0;
+}
+
+.post-type-wrapper > ul > li {
+    list-style-type: none;
+    padding: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.post-type-wrapper > ul > li:hover {
+    background-color: aqua;
+    box-shadow: 0px 8px 16px #00000030;
+}
+
+
+
+/**************************         MEDIA PREVIEW       ***************************/
+
+.media-preview-wrapper {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 24px;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/**************************         ACHIEVMENT FORM       ***************************/
+
+.achievment-form-wrapper {
+    width: 100%;
+}
+
+.achievment-form-wrapper > h3 {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 8px;
+}
+
+.achievment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
