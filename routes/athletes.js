@@ -2,18 +2,7 @@ const express = require('express')
 const athleteRouter = express.Router()
 const Athlete = require('../models/athletes')
 
-
-
-
-// athleteRouter.route('/')
-//     .get((req, res) => {
-//         console.log('Hello Athletes!')
-//         Athlete.find((err, routes) => {
-//             if (err) return res.status(500).send(err)
-//             return res.send(routes)
-//         })
-//     })
-    athleteRouter.route('/')
+athleteRouter.route('/')
     .get((req, res) => {
         Athlete.findById(req.user._id, (err, foundAthlete) => {
             if (err) return res.status(500).send(err)
