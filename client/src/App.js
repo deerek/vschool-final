@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+
+// COMPONENTS
 import Onboard from './onboard/Onboard';
 import Home from './home/Home';
 import Create from './create/Create';
