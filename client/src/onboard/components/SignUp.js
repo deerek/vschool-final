@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 import '../onboard.css';
 
 class SignUp extends Component {
+
     render() {
         return (
             <div className="sign-up-wrapper">
@@ -30,5 +31,4 @@ class SignUp extends Component {
     }
 }
 
-
-export default SignUp;
+export default Signup
