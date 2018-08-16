@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
+const bcrypt = require("bcrypt")
 
 const athleteSchema = new Schema({
     firstName: {
@@ -49,6 +50,10 @@ const athleteSchema = new Schema({
         required: true,
         unique: true
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     followersCount: Number,
     followers: [],
     followingCount: Number,
@@ -61,7 +66,33 @@ const athleteSchema = new Schema({
     lastLogin: Date
 }, {timestamps: true})
 
+athleteSchema.pre("save", function (next) {
+    var user = this;
+    if (!user.isModified("password")) return next();
+    bcrypt.hash(user.password, 10, (err, hash) => {
+        if (err) return next(err);
+        user.password = hash;
+        next();
+    })
+})
+
+athleteSchema.methods.checkPassword = function(passwordAttempt, callback) {
+    bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
+        if (err) return callback(err);
+        callback(null, isMatch);
+    })
+}
+
+athleteSchema.methods.withoutPassword = function () {
+    const user = this.toObject();
+    delete user.password;
+    return user;
+}
+
 module.exports = mongoose.model('Athlete', athleteSchema)
+
+
+
 
 
 // Copy of Original Code:
