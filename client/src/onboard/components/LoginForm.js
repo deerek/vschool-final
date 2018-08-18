@@ -4,6 +4,10 @@ function LoginForm(props) {
     return (
         <div>
         <form onSubmit={props.handleSubmit} className="login-form-wrapper">
+            <label htmlFor="">Athlete</label>
+            <input type="radio" name="userType" value="athlete" onChange={props.handleChange} checked={"athlete" === props.userType}/>
+            <label htmlFor="">Brand</label>
+            <input type="radio" name="userType" value="brand" onChange={props.handleChange} checked={"brand" === props.userType}/>
             <input  name="username" 
                     placeholder="Username" 
                     type="text"

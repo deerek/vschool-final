@@ -4,19 +4,16 @@ const { Schema } = mongoose
 const athleteContentSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
-        ref: "Athlete",
-        required: true
+        ref: "Athlete"
     },
-    name: String,
-    description: String,
-    // content: {
-    //     type: String,
-    //     required: true
-    // },
-    media: {
-        src: String
-    }
-})
+    media: String,
+    finishingPlace: String,
+    eventCategory: String,
+    eventName: String,
+    eventDate: Date,
+    details: String
+},
+{timestamps: true})
 
 module.exports = mongoose.model('athleteContent', athleteContentSchema)
 

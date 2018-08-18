@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // REDUX
 import { connect } from 'react-redux';
-// import { login } from '../../redux/auth';
+import { login } from '../../redux/auth';
 
 // COMPONENTS
 import LoginForm from './LoginForm';

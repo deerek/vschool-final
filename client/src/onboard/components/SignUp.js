@@ -3,12 +3,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 // REDUX
-// import { connect } from 'react-redux';
-// import { signup } from '../../redux/auth';
+import { connect } from 'react-redux';
+import { signup } from '../../redux/auth';
 
 // COMPONENTS
 import SignUpForm from './SignUpForm';
 
+// STYLES
 import '../onboard.css';
 
 class SignUp extends Component {
@@ -17,12 +18,15 @@ class SignUp extends Component {
         super();
         this.state = {
             inputs: {
+                userType: "",
                 firstName: "",
                 lastName: "",
                 companyName: "",
                 email: "",
                 username: "",
-                password: ""
+                password: "",
+                gender: "",
+                sport: ""
             }
         }
     }
@@ -42,12 +46,15 @@ class SignUp extends Component {
     clearInputs() {
         this.setState({
             inputs: {
+                userType: "",
                 firstName: "",
                 lastName: "",
                 companyName: "",
                 email: "",
                 username: "",
-                password: ""
+                password: "",
+                gender: "",
+                sport: ""
             }
         })
     }
@@ -63,7 +70,7 @@ class SignUp extends Component {
         let errMsg = "";
         if (authErrCode < 500 && authErrCode > 399) {
             return errMsg = "Invalid username or password";
-        } else if (authErrCode < 499) {
+        } else if (authErrCode > 499) {
             return errMsg = "Server error!"
         }
         return (
@@ -79,7 +86,6 @@ class SignUp extends Component {
                 <SignUpForm
                 handleChange={this.handleChange.bind(this)}
                 handleSubmit={this.handleSubmit.bind(this)}
-                errMsg={errMsg}
                 {...this.state.inputs} />
             </div>
         )

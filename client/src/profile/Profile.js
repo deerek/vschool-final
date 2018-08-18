@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import UserInfo from './components/UserInfo';
 import FollowsBar from './components/FollowsBar';
 import SponsorsBar from './components/SponsorsBar';
-import Feed from '../home/components/Feed';
+// import Feed from '../home/components/Feed';
 import Header from '../Header';
 
 class Profile extends Component {
@@ -18,6 +18,8 @@ class Profile extends Component {
             lastName: "",
             username: "",
             bio: "",
+            sport: "",
+            gender: "",
             followers: [],
             following: [],
             sponsors: []
@@ -42,7 +44,7 @@ class Profile extends Component {
                     <SponsorsBar sponsors={this.state.sponsors} />
                 </div>
                 <div className="profile-feed-wrapper">
-                    <Feed />
+                    
                 </div>
             </div>
         )

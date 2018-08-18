@@ -5,17 +5,11 @@ const brandContentSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: "Brand",
-        required: true
     },
-    name: String,
-    description: String,
-    // content: {
-    //     type: String,
-    //     required: true
-    // },
-    media: {
-        src: String
-    }
+    media: String,
+    eventName: String,
+    eventDate: String,
+    details: String
 })
 
 module.exports = mongoose.model('brandContent', brandContentSchema)

@@ -37,9 +37,6 @@ export default function reducer(state = initialState, action) {
                 ...initialState,
                 loading: false
             }
-        
-            default:
-            return state;
 
         case "AUTH_ERROR":
             return {
@@ -50,13 +47,16 @@ export default function reducer(state = initialState, action) {
                 },
                 loading: false
             }
+        default:
+            return state;
+
     }
 }
 
 export function authenticate(user) {
     return {
         type: "AUTHENTICATE",
-        user  
+        user
     }
 }
 
@@ -95,11 +95,21 @@ export function login(credentials) {
 
 export function verify() {
     return dispatch => {
-        profileAxios.get("/api/profile")
-            .then(response => {
-                let { user } = response.data;
-                dispatch(authenticate(user));
-            })
+        //find out the user type from local storage
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) return dispatch(authError("verify", 401));
+        let promise;
+        switch (user.userType) {
+            case "athlete":
+                promise = profileAxios.get("/api/athletes")
+                break;
+            case "brand":
+                promise = profileAxios.get("/api/brands");
+        }
+        promise.then(response => {
+            let { user } = response.data;
+            dispatch(authenticate(user));
+        })
             .catch(err => {
                 dispatch(authError("verify", err.response.status));
             });

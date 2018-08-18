@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // REDUX
 import { connect } from 'react-redux';
-import { loadContent } from '../../redux/content';
+import { loadContents } from '../redux/aContent';
 
 import Feed from './components/Feed';
 import Header from '../Header';
@@ -21,14 +21,14 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.props.loadContent();
+        this.props.loadContents();
     }
     
     render() {
         return (
             <div>
                 <Header />
-                <Feed data={this.state.content} />
+                <Feed contents={this.props.aContent} />
                 <CreateButton />
             </div>
         )
@@ -39,7 +39,7 @@ const mapStateToProps = state => {
     return state;
 }
 
-export default connect(mapStateToProps, { loadContent })(Home);
+export default connect(mapStateToProps, { loadContents })(Home);
 
 
 // THIS IS HOW WE WORK WITH TWO DIFFERENT CONTENT SCHEMAS
