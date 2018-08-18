@@ -9,7 +9,7 @@ function AppWelcome() {
             <Link to="/onboard/login">
                 <h4>Login</h4>
             </Link>
-            <Link to="/onboard/account-type">
+            <Link to="/onboard/sign-up">
                 <h4>Sign Up</h4>
             </Link>
         </div>

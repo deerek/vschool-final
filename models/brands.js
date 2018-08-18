@@ -5,50 +5,30 @@ const bcrypt = require("bcrypt")
 const brandSchema = new Schema({
     brandName: {
         type: String,
-        required: true
+        required: false
     },
-    brandContact: {
-        firstName: {
-            type: String,
-            required: true
-        },
-        lastName: {
-            type: String,
-            required: true
-        }
-    },
+    firstName: String,
+    lastName: String,
     email: {
         type: String,
-        required: true,
         unique: true
     },
-    sport: {
-        type: String,
-        required: true
-    },
-    about: String,
-    athletes: String,
-    pastEvents: String,
-    futureEvents: [{
-        name: String,
-        date: Date,
-        location: String
-    }],
+    bio: String,
+    athletes: [],
     userType: {
         type: String,
-        required: true,
+        required: false,
         enum: ["brand"]
     },
     username: {
         type: String,
-        required: true,
+        required: false,
         unique: true,
         lowercase: true
     },
     password: {
         type: String,
-        required: true,
-        unique: true
+        required: false,
     },
     isAdmin: {
         type: Boolean,

@@ -79,7 +79,7 @@ authRouter.post("/login", (req, res) => {
                         if (err) throw (err);
                         if (!match) return res.status(401).send({ success: false, message: "Incorrect password" })
                         const token = jwt.sign(athlete.toObject(), process.env.SECRET, { expiresIn: "24h" })
-                        return res.send({ user: user.withoutPassword(), token: token, user: athlete.toObject(), success: true, message: "Here's your token!" })
+                        return res.send({ user: athlete.withoutPassword(), token: token, user: athlete.toObject(), success: true, message: "Here's your token!" })
                     })
                 }
             })
@@ -95,7 +95,7 @@ authRouter.post("/login", (req, res) => {
                         if (err) throw (err);
                         if (!match) return res.status(401).send({ success: false, message: "Incorrect password" })
                         const token = jwt.sign(brand.toObject(), process.env.SECRET, { expiresIn: "24h" })
-                        return res.send({ user: user.withoutPassword(), token: token, user: brand.toObject(), success: true, message: "Here's your token!" })
+                        return res.send({ user: brand.withoutPassword(), token: token, user: brand.toObject(), success: true, message: "Here's your token!" })
                     })
                 }
             })

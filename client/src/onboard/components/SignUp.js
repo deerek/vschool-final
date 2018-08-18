@@ -1,11 +1,78 @@
+// REACT
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+// REDUX
+import { connect } from 'react-redux';
+import { signup } from '../../redux/auth';
+
+// COMPONENTS
+import SignUpForm from './SignUpForm';
+
+// STYLES
 import '../onboard.css';
 
 class SignUp extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            inputs: {
+                userType: "",
+                firstName: "",
+                lastName: "",
+                companyName: "",
+                email: "",
+                username: "",
+                password: "",
+                gender: "",
+                sport: ""
+            }
+        }
+    }
+
+    handleChange(e) {
+        e.persist();
+        this.setState(prevState => {
+            return {
+                inputs: {
+                    ...prevState.inputs,
+                    [e.target.name]: e.target.value
+                }
+            }
+        })
+    }
+
+    clearInputs() {
+        this.setState({
+            inputs: {
+                userType: "",
+                firstName: "",
+                lastName: "",
+                companyName: "",
+                email: "",
+                username: "",
+                password: "",
+                gender: "",
+                sport: ""
+            }
+        })
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.signup(this.state.inputs);
+        this.clearInputs();
+    }
+
     render() {
+        let authErrCode = this.props.authErrCode.signup;
+        let errMsg = "";
+        if (authErrCode < 500 && authErrCode > 399) {
+            return errMsg = "Invalid username or password";
+        } else if (authErrCode > 499) {
+            return errMsg = "Server error!"
+        }
         return (
             <div className="sign-up-wrapper">
                 <Link to="/onboard/login">
@@ -16,19 +83,14 @@ class SignUp extends Component {
                     <li>Athlete</li>
                     <li>Brand</li>
                 </ul>
-                <form className="sign-up-form-wrapper" action="">
-                    <input name="firstName" placeholder="First Name" type="text"/>
-                    <input name="lastName" placeholder="Last Name" type="text"/>
-                    <input name="email" placeholder="Email" type="email"/>
-                    <input name="username" placeholder="Username" type="text"/>
-                    <input name="password" placeholder="Password" type="password"/>
-                    <Link to="/">
-                        <button className="sign-up-button">Create Account</button>
-                    </Link>
-                </form>
+                <SignUpForm
+                handleChange={this.handleChange.bind(this)}
+                handleSubmit={this.handleSubmit.bind(this)}
+                {...this.state.inputs} />
             </div>
         )
     }
 }
 
-export default Signup
+
+export default connect(state => state.auth, { signup })(SignUp);

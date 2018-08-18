@@ -5,50 +5,42 @@ const bcrypt = require("bcrypt")
 const athleteSchema = new Schema({
     firstName: {
         type: String,
-        required: true
+        required: false
     },
     lastName: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
-        required: true,
+        required: false,
         unique: true
-    },
+    }, 
     gender: {
         type: String,
-        required: true,
+        required: false,
         enum: ["male", "female"]
     },
     sport: {
         type: String,
-        required: true
+        required: false
     },
     bio: String,
-    isSponsered: Boolean,
-    sponsers: String,
-    competionResults: String,
-    futureEvents:[{
-        name: String,
-        date: Date,
-        location: String
-    }],
+    sponsors: String,
     userType: {
         type: String,
-        required: true,
+        required: false,
         enum: ["athlete"]
     },
     username: {
         type: String,
-        required: true,
+        required: false,
         unique: true,
         lowercase: true
     },
     password: {
         type: String,
-        required: true,
-        unique: true
+        required: false,
     },
     isAdmin: {
         type: Boolean,

@@ -4,6 +4,7 @@ import Avatar from '../../Avatar';
 import '../profile.css';
 
 function SponsorsBar(props) {
+    
     // const results = props.data;
     // let sponsors = results.map(content => <Avatar {...sponsor} key={sponsor._id} />)
 
