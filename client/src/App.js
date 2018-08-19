@@ -7,7 +7,7 @@ import { verify } from './redux/auth';
 
 // COMPONENTS
 import ProtectedRoute from './ProtectedRoute';
-import Onboard from './onboard/Onboard';
+// import Onboard from './onboard/Onboard';
 import Home from './home/Home';
 import Create from './create/Create';
 import Profile from './profile/Profile';

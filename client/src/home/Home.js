@@ -1,10 +1,11 @@
 // REACT
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 // REDUX
 import { connect } from 'react-redux';
 import { loadContents } from '../redux/aContent';
+import { loadContents as loadBrandContents } from '../redux/bContent';
 
 import Feed from './components/Feed';
 import Header from '../Header';
@@ -22,6 +23,7 @@ class Home extends Component {
 
     componentDidMount() {
         this.props.loadContents();
+        this.props.loadBrandContents();
     }
     
     render() {
@@ -39,7 +41,7 @@ const mapStateToProps = state => {
     return state;
 }
 
-export default connect(mapStateToProps, { loadContents })(Home);
+export default connect(mapStateToProps, { loadContents, loadBrandContents })(Home);
 
 
 // THIS IS HOW WE WORK WITH TWO DIFFERENT CONTENT SCHEMAS

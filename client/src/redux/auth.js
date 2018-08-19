@@ -11,6 +11,7 @@ const initialState = {
     user: {
         username: "",
         admin: false,
+        userType: "",
         _id: ""
     },
     authErrCode: {
