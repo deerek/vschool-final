@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 
 // REDUX
-import addContent from '../redux/aContent';
+import { connect } from 'react-redux';
+import { addContent } from '../redux/aContent';
+import { addContent as addBrandContent } from '../redux/bContent';
 
 // COMPONENTS
-import PostType from './components/PostType';
 import CreateHeader from './components/CreateHeader';
-import MediaPreview from './components/MediaPreview';
-import Caption from './components/Caption';
-import AchievmentForm from './components/AchievmentForm';
+import AthleteContentForm from './components/AthleteContentForm';
+import BrandContentForm from './components/BrandContentForm';
 // import { Switch, Route } from 'react-router-dom';
 
 class Create extends Component {
@@ -40,6 +40,18 @@ class Create extends Component {
         })
     }
 
+    handleBrandChange(e) {
+        e.persist();
+        this.setState((prevState) => {
+            return {
+                inputs: {
+                    ...prevState.inputs,
+                    [e.target.name]: e.target.value
+                }
+            }
+        })
+    }
+
     clearInputs() {
         this.setState({
             inputs: {
@@ -60,17 +72,31 @@ class Create extends Component {
         this.clearInputs;
     }
 
+    handleBrandSubmit(e) {
+        e.preventDefault();
+        this.props.addBrandContent(this.state.inputs);
+        this.clearInputs;
+    }
+
     render() {
         return (
             <div className="create-wrapper">
                 <CreateHeader />
-                <PostType />
-                <MediaPreview />
-                <Caption />
-                <AchievmentForm />
+                <AthleteContentForm     
+                    handleChange={this.handleChange.bind(this)} 
+                    handleSubmit={this.handleSubmit.bind(this)}
+                    {...this.state.inputs} />
+                <BrandContentForm       
+                    handleBrandChange={this.handleBrandChange.bind(this)} 
+                    handleBrandSubmit={this.handleBrandSubmit.bind(this)}
+                    {...this.state.inputs} />
             </div>
         )
     }
 }
 
-export default Create;
+// const mapStateToProps = state => {
+//     return state;
+// }
+
+export default connect(state => state.auth, { addContent, addBrandContent })(Create);

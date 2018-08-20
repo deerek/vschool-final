@@ -23,7 +23,7 @@ import './app.css';
                 </Link>
                 <button onClick={props.logout}>Logout</button>
                 <Link to="/profile">
-                    <Avatar />
+                    <Avatar avatar={props.avatar} />
                 </Link>
             </div>
             

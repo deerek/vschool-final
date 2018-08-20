@@ -11,11 +11,11 @@ function UserInfo(props) {
             <div className="user-info-flex">
                 <Avatar />
                 <div className="user-names-wrapper">
-                    <h3>Derek Bodily</h3>
-                    <h5>@username</h5>
+                    <h3>{props.firstName} {props.lastName}</h3>
+                    <h5>{props.username}</h5>
                 </div>
             </div>
-            <p>Bio about this particular user goes here and they talk about all the things they do and it is probably a limit of 500 characters</p>
+            <p>{props.bio}</p>
             <Link to="/edit-profile">
                 <button>Edit Profile</button>
             </Link>

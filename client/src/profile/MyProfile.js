@@ -13,7 +13,7 @@ import UserInfo from './components/UserInfo';
 import ProfileFeed from './components/ProfileFeed';
 import Header from '../Header';
 
-class Profile extends Component {
+class MyProfile extends Component {
 
     componentDidMount() {
         this.props.loadMyContents();
@@ -38,4 +38,4 @@ class Profile extends Component {
     }
 }
 
-export default connect(state => state, {loadMyContents, loadMyBrandContents})(Profile);
+export default connect(state => state, {loadMyContents, loadMyBrandContents})(MyProfile);

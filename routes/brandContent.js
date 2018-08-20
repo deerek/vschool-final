@@ -15,6 +15,13 @@ brandContentRouter.get('/', (req, res) => {
     })
 })
 
+brandContentRouter.get("/public", (req, res) => {
+    BrandContent.find((err, brandContents) => {
+        if (err) return res.status(500).send(err);
+        return res.send(brandContents)
+    })
+})
+
 brandContentRouter.post("/", (req, res) => {
     const content = new BrandContent(req.body)
     content.user = req.user._id;
@@ -27,16 +34,16 @@ brandContentRouter.post("/", (req, res) => {
 brandContentRouter.get('/:brandContentId', (req, res) => {
     BrandContent.findOne(
         { _id: req.params.brandContentId, user: req.user._id },
-         (err, brandContent) => {
-        if (err) return res.status(500).send(err)
-        if (!brandContent) return res.status(404).send("No content item found.");
-        return res.send(brandContent)
-    })
+        (err, brandContent) => {
+            if (err) return res.status(500).send(err)
+            if (!brandContent) return res.status(404).send("No content item found.");
+            return res.send(brandContent)
+        })
 })
 
 brandContentRouter.put('/:brandContentId', (req, res) => {
     BrandContent.findOneAndUpdate(
-        { _id: req.params.brandContentId, user: req.user._id  },
+        { _id: req.params.brandContentId, user: req.user._id },
         req.body,
         { new: true },
         (err, brandContent) => {
@@ -50,9 +57,9 @@ brandContentRouter.delete('/:brandContentId', (req, res) => {
     BrandContent.findOneAndRemove(
         { _id: req.params.brandContentId, user: req.user._id },
         (err, brandContent) => {
-        if (err) return res.status(500).send(err)
-        return res.status(204).send(brandContent)
-    })
+            if (err) return res.status(500).send(err)
+            return res.status(204).send(brandContent)
+        })
 });
 
 module.exports = brandContentRouter
