@@ -11,6 +11,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Home from './home/Home';
 import Create from './create/Create';
 import Profile from './profile/Profile';
+import MyProfile from './profile/MyProfile';
 import AppWelcome from './onboard/components/AppWelcome';
 import Login from './onboard/components/Login';
 import SignUp from './onboard/components/SignUp';
@@ -25,13 +26,13 @@ class App extends Component {
         return (
             <div>
                 <div className="app-wrapper">
-                    { loading ?
+                    {loading ?
                         <div>...Loading User Data...</div>
                         :
                         <Switch>
-                            <Route path="/onboard/sign-up" render={ props => isAuthenticated
+                            <Route path="/onboard/sign-up" render={props => isAuthenticated
                                 ?
-                                <Redirect to="/" /> 
+                                <Redirect to="/" />
                                 :
                                 <SignUp {...props} />
                             } />
@@ -41,17 +42,22 @@ class App extends Component {
                                 :
                                 <Login {...props} />
                             } />
-                            <Route path="/onboard/app-welcome" component={AppWelcome} />
+                            <Route path="/onboard/app-welcome" render={props => isAuthenticated
+                                ?
+                                <Redirect to="/" />
+                                :
+                                <AppWelcome {...props}/>} />
                             <ProtectedRoute exact path="/" component={Home} />
                             <ProtectedRoute path="/create" component={Create} />
-                            <ProtectedRoute path="/profile" component={Profile} />
+                            <ProtectedRoute path="/profile" component={MyProfile} />
+                            <ProtectedRoute path="/profile/:userId" component={Profile} />
                             <ProtectedRoute path="/edit-profile" component={EditProfile} />
                         </Switch>
                     }
                 </div>
-            </div> 
+            </div>
         )
     }
 }
 
-export default withRouter(connect(state => state.auth, {verify})(App));
+export default withRouter(connect(state => state.auth, { verify })(App));

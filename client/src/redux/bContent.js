@@ -16,7 +16,7 @@ const initialContents = []
 
 export default function contentsReducer(contents = initialContents, action) {
     switch (action.type) {
-        case "SET_CONTENTS":
+        case "SET_BRAND_CONTENTS":
             return [...action.contents]
         case "LOGOUT":
             return initialContents;
@@ -25,7 +25,6 @@ export default function contentsReducer(contents = initialContents, action) {
     }
 }
 
-const SET_CONTENTS = "SET_CONTENTS"
 const contentUrl = "/api/brandContent/"
 
 /////////////////////////////////
@@ -34,12 +33,24 @@ const contentUrl = "/api/brandContent/"
 
 function setContents(contents) {
     return {
-        type: SET_CONTENTS,
+        type: "SET_BRAND_CONTENTS",
         contents
     }
 }
 
 export function loadContents() {
+    return dispatch => {
+        brandAxios.get(contentUrl + "public")
+            .then(response => {
+                dispatch(setContents(response.data));
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
+}
+
+export function loadMyContents() {
     return dispatch => {
         brandAxios.get(contentUrl)
             .then(response => {

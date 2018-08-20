@@ -15,6 +15,13 @@ athleteContentRouter.get('/', (req, res) => {
     })
 })
 
+athleteContentRouter.get("/public", (req,res)=>{
+    AthleteContent.find((err, athleteContents) => {
+        if (err) return res.status(500).send(err);
+        return res.send(athleteContents)
+    })
+})
+
 athleteContentRouter.post('/', (req, res) => {
     const content = new AthleteContent(req.body)
     content.user = req.user._id;

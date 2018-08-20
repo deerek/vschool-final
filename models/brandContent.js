@@ -10,6 +10,6 @@ const brandContentSchema = new Schema({
     eventName: String,
     eventDate: String,
     details: String
-})
+},{timestamps: true})
 
 module.exports = mongoose.model('brandContent', brandContentSchema)

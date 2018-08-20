@@ -84,7 +84,7 @@ export function login(credentials) {
             .then(response => {
                 const { token, user } = response.data;
                 localStorage.token = token
-                localStorage.user = JSON.stringify(user);
+                localStorage.setItem("user", JSON.stringify(user));
                 dispatch(authenticate(user));
             })
             .catch((err) => {
@@ -106,14 +106,51 @@ export function verify() {
                 break;
             case "brand":
                 promise = profileAxios.get("/api/brands");
+                break;
+            default:
+                return null;
         }
         promise.then(response => {
-            let { user } = response.data;
-            dispatch(authenticate(user));
+            dispatch(authenticate(response.data));
         })
             .catch(err => {
                 dispatch(authError("verify", err.response.status));
             });
+    }
+}
+
+export function editProfile(userInfo) {
+    return dispatch => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) return dispatch(authError("edit user", 401));
+        let promise;
+        switch (user.userType) {
+            case "athlete":
+                promise = profileAxios.put("/api/athletes", userInfo)
+                break;
+            case "brand":
+                promise = profileAxios.put("/api/brands", userInfo);
+                break;
+            default:
+                return null;
+        }
+         return promise.then(response => {
+                localStorage.setItem("user", JSON.stringify(response.data));
+                dispatch(authenticate(response.data));
+        })
+            .catch(err => {
+                dispatch(authError("edit profile", err.response.status));
+            });
+
+        //we need to send a PUT request to either athletes route or brands route
+
+        //check userType
+        // send a request to the correct url (e.g PUT "/api/athletes/")
+        // then dispatch an action called "EDIT_USER" containing response.data
+        // update localstorage with response.data as well
+        // handle the case in the reducer, replaceing the user object with the 
+
+
     }
 }
 

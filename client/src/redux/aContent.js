@@ -16,7 +16,7 @@ const initialContents = []
 
 export default function contentsReducer(contents = initialContents, action) {
     switch (action.type) {
-        case "SET_CONTENTS":
+        case "SET_ATHLETE_CONTENTS":
             return [...action.contents]
         case "LOGOUT":
             return initialContents;
@@ -25,7 +25,6 @@ export default function contentsReducer(contents = initialContents, action) {
     }
 }
 
-const SET_CONTENTS = "SET_CONTENTS"
 const contentUrl = "/api/athleteContent/"
 
 
@@ -35,12 +34,24 @@ const contentUrl = "/api/athleteContent/"
 
 function setContents(contents) {
     return {
-        type: SET_CONTENTS,
+        type: "SET_ATHLETE_CONTENTS",
         contents
     }
 }
 
 export function loadContents() {
+    return dispatch => {
+        athleteAxios.get(contentUrl + "public")
+            .then(response => {
+                dispatch(setContents(response.data));
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
+}
+
+export function loadMyContents() {
     return dispatch => {
         athleteAxios.get(contentUrl)
             .then(response => {
