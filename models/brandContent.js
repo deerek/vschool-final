@@ -6,6 +6,10 @@ const brandContentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Brand",
     },
+    contentType: {
+        type: String,
+        default: "brand"
+    },
     media: String,
     eventName: String,
     eventDate: String,

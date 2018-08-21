@@ -26,6 +26,13 @@ brandRouter.route('/')
         })
     });
 
+brandRouter.route('/:id')
+    .get((req, res) => {
+        Brand.findById(req.params.id, (err, foundBrand) => {
+            if (err) return res.status(500).send(err)
+            return res.send(foundBrand)
+        })
+    })
 
 
 

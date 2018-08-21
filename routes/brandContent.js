@@ -16,7 +16,7 @@ brandContentRouter.get('/', (req, res) => {
 })
 
 brandContentRouter.get("/public", (req, res) => {
-    BrandContent.find((err, brandContents) => {
+    BrandContent.find(req.query,(err, brandContents) => {
         if (err) return res.status(500).send(err);
         return res.send(brandContents)
     })
