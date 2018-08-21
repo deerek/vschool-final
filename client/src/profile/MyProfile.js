@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 // REDUX
-import { connect } from 'react-redux';
-import { loadMyContents } from '../redux/aContent';
-import { loadMyContents as loadMyBrandContents } from '../redux/bContent';
+import { connect } from 'react-redux'
+import { loadMyContents } from '../redux/aContent'
+import { loadMyContents as loadMyBrandContents } from '../redux/bContent'
 
 
 // COMPONENTS
-import UserInfo from './components/UserInfo';
-// import FollowsBar from './components/FollowsBar';
-// import SponsorsBar from './components/SponsorsBar';
-import ProfileFeed from './components/ProfileFeed';
-import Header from '../Header';
+import UserInfo from './components/UserInfo'
+// import FollowsBar from './components/FollowsBar'
+// import SponsorsBar from './components/SponsorsBar'
+import ProfileFeed from './components/ProfileFeed'
+import Header from '../Header'
 
 class MyProfile extends Component {
 

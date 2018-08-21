@@ -25,6 +25,14 @@ athleteRouter.route('/')
         })
     });
 
+athleteRouter.route("/:id")
+    .get((req, res) => {
+        Athlete.findById(req.params.id, (err, foundAthlete) => {
+            if (err) return res.status(500).send(err)
+            return res.send(foundAthlete)
+        })
+    })
+
 
 
 

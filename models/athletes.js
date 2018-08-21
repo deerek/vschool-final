@@ -46,10 +46,12 @@ const athleteSchema = new Schema({
         type: Boolean,
         default: false
     },
-    followersCount: Number,
-    followers: [],
-    followingCount: Number,
-    following: [],
+    followers: [{
+        type: Schema.Types.ObjectId
+    }],
+    following: [{
+        type: Schema.Types.ObjectId
+    }],
     postsCount: Number,
     posts: [],
     likesCount: Number,

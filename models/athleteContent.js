@@ -6,6 +6,10 @@ const athleteContentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Athlete"
     },
+    contentType: {
+        type: String,
+        default: "athlete"
+    },
     media: String,
     finishingPlace: String,
     eventCategory: String,

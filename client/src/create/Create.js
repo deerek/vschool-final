@@ -19,7 +19,6 @@ class Create extends Component {
         super();
         this.state = {
             inputs: {
-                contentType: "",
                 media: "",
                 finishingPlace: "",
                 eventName: "",
