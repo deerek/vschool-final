@@ -6,6 +6,10 @@
     -webkit-margin-end: 0px;
 }
 
+span, p, h6, h5, h4, h3, h2, h1 {
+    font-family: Heebo, sans-serif;
+}
+
 .header-wrapper {
     display: flex;
     justify-content: space-between;

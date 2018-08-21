@@ -5,18 +5,30 @@ import React from 'react';
 // STYLES 
 import '../edit-profile.css'
 
-function EditProfileForm(props) {
+function EditBrandForm(props) {
     return (
-        <div className="edit-profile-form-wrapper">
+        <div className="edit-brand-form-wrapper">
+            <h1>{props.userType}</h1>
             <div className="avatar-wrapper">
                 <img className="edit-avatar" src={props.avatar} alt=""/>
             </div>
-            <form onSubmit={props.handleSubmit} className="edit-profile-form" action="">
+            <form onSubmit={props.handleSubmit} className="edit-brand-form" action="">
                 <input  name="avatar" 
                         placeholder="Avatar URL" 
                         type="text"
                         onChange={props.handleChange}
                         value={props.avatar}/>
+                <input  name="companyName" 
+                        placeholder="Company Name" 
+                        type="text"
+                        onChange={props.handleChange}
+                        value={props.companyName}/>
+                <input  name="username" 
+                        placeholder="Username" 
+                        type="text"
+                        onChange={props.handleChange}
+                        value={props.username}/>
+                <h4>Brand Rep</h4>
                 <input  name="firstName" 
                         placeholder="First Name" 
                         type="text"
@@ -27,11 +39,6 @@ function EditProfileForm(props) {
                         type="text"
                         onChange={props.handleChange}
                         value={props.lastName}/>
-                <input  name="username" 
-                        placeholder="Username" 
-                        type="text"
-                        onChange={props.handleChange}
-                        value={props.username}/>
                 <input  name="email" 
                         placeholder="Email" 
                         type="text"
@@ -42,17 +49,10 @@ function EditProfileForm(props) {
                         type="text"
                         onChange={props.handleChange}
                         value={props.bio}/>
-                <input  name="sport" 
-                        placeholder="Sport" 
-                        type="text"
-                        onChange={props.handleChange}
-                        value={props.sport}/>
-                <input type="radio" name="gender" value="male" onChange={props.handleChange} checked={"male" === props.gender}/>
-                <input type="radio" name="gender" value="female" onChange={props.handleChange} checked={"female" === props.gender}/>
                 <button type="submit">Save</button>
             </form>
         </div>
     )
 }
 
-export default EditProfileForm;
+export default EditBrandForm;
