@@ -49,8 +49,8 @@ class App extends Component {
                                 <AppWelcome {...props}/>} />
                             <ProtectedRoute exact path="/" component={Home} />
                             <ProtectedRoute path="/create" component={Create} />
-                            <ProtectedRoute path="/profile" component={MyProfile} />
-                            <ProtectedRoute path="/profile/:userId" component={Profile} />
+                            <ProtectedRoute exact path="/profile" component={MyProfile} />
+                            <ProtectedRoute path="/profile/:contentType/:userId" component={Profile} />
                             <ProtectedRoute path="/edit-profile" component={EditProfile} />
                         </Switch>
                     }

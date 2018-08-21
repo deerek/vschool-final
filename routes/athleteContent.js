@@ -16,7 +16,7 @@ athleteContentRouter.get('/', (req, res) => {
 })
 
 athleteContentRouter.get("/public", (req,res)=>{
-    AthleteContent.find((err, athleteContents) => {
+    AthleteContent.find(req.query, (err, athleteContents) => {
         if (err) return res.status(500).send(err);
         return res.send(athleteContents)
     })

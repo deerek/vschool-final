@@ -1,9 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import "../profile.css";
-import Avatar from '../../Avatar';
-
+import "../profile.css"
+import Avatar from '../../Avatar'
+import FollowButton from '../FollowButton'
+import SponsorButton from '../SponsorButton'
 
 function UserInfo(props) {
     return (
@@ -16,12 +18,16 @@ function UserInfo(props) {
                 </div>
             </div>
             <p>{props.bio}</p>
-            <Link to="/edit-profile">
+            {!props.public && <Link to="/edit-profile">
                 <button>Edit Profile</button>
-            </Link>
+            </Link>}
+
+            {/* sponsor only if logged in user is brand and profile is athlete*/}
+            {props.public && <FollowButton />}
+            {props.public && props.userType === "athlete" && props.auth.user.userType === "brand" && <SponsorButton />}
         </div>
     )
 }
 
-export default UserInfo;
+export default connect(state => state, {})(UserInfo)
 
