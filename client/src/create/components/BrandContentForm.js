@@ -6,7 +6,7 @@ import '../create.css';
 function BrandContentForm(props) {
     return (
         <div className="brand-content-form-wrapper">
-            <h3>Athlete Post</h3>
+            <h3>Brand Post</h3>
             <form onSubmit={props.handleBrandSubmit}className="brand-content-form" action="">
                 <input  placeholder="Media URL" 
                         name="media" 
@@ -24,7 +24,7 @@ function BrandContentForm(props) {
                         onChange={props.handleBrandChange}
                         value={props.eventCategory}/>
                 <input  placeholder="Event Date" 
-                        name="place" 
+                        name="eventDate" 
                         type="date"
                         onChange={props.handleBrandChange}
                         value={props.eventDate}/>

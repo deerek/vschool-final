@@ -65,10 +65,15 @@ export function loadMyContents() {
 
 export function addContent(content) {
     return dispatch => {
-        athleteAxios.post(contentUrl, content)
+        return athleteAxios.post(contentUrl, content)
             .then(response => {
                 dispatch(loadContents());
             })
+        // let promise;
+        //     return promise.then(response => {
+        //         localStorage.setItem("user", JSON.stringify(response.data));
+        //         dispatch(addContent(response.data));
+        // })
             .catch(err => {
                 console.error(err);
             })

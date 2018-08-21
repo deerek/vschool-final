@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 // import CardMedia from './components/CardMedia';
 // import CardInfo from './components/CardInfo';
 
+//moment
+import moment from "moment";
+
 // STYLES
 import './card.css';
 
@@ -18,7 +21,7 @@ export default class Card extends Component {
                 </div>
                 <img src={this.props.media} alt=""/>
                 <div className="post-info-wrapper">
-                    <h5>{this.props.eventDate}</h5>
+                    <h5>{moment(this.props.eventDate).format("dddd, MMMM Do")}</h5>
                     <h6>{this.props.user}</h6>
                     <p>{this.props.details}</p>  
                 </div>      

@@ -11,6 +11,8 @@ import AthleteContentForm from './components/AthleteContentForm';
 import BrandContentForm from './components/BrandContentForm';
 // import { Switch, Route } from 'react-router-dom';
 
+
+
 class Create extends Component {
 
     constructor() {
@@ -19,7 +21,7 @@ class Create extends Component {
             inputs: {
                 contentType: "",
                 media: "",
-                place: "",
+                finishingPlace: "",
                 eventName: "",
                 eventCategory: "",
                 eventDate: "",
@@ -52,44 +54,36 @@ class Create extends Component {
         })
     }
 
-    clearInputs() {
-        this.setState({
-            inputs: {
-                contentType: "",
-                media: "",
-                place: "",
-                eventName: "",
-                eventCategory: "",
-                eventDate: "",
-                caption: ""
-            }
-        })
-    }
-
     handleSubmit(e) {
         e.preventDefault();
-        this.props.addContent(this.state.inputs);
-        this.clearInputs;
+        this.props.addContent(this.state.inputs)
+            .then(() => this.props.history.push("/"))
     }
 
     handleBrandSubmit(e) {
         e.preventDefault();
-        this.props.addBrandContent(this.state.inputs);
-        this.clearInputs;
+        this.props.addBrandContent(this.state.inputs)
+        .then(() => this.props.history.push("/"))
     }
 
     render() {
+        const userType = this.props.user.userType;
+        let form;
+        if (userType === "athlete") {
+            form = <AthleteContentForm     
+                        handleChange={this.handleChange.bind(this)} 
+                        handleSubmit={this.handleSubmit.bind(this)}
+                        {...this.state.inputs} />
+        } else {
+            form =  <BrandContentForm       
+                        handleBrandChange={this.handleBrandChange.bind(this)} 
+                        handleBrandSubmit={this.handleBrandSubmit.bind(this)}
+                        {...this.state.inputs} />
+        }
         return (
             <div className="create-wrapper">
                 <CreateHeader />
-                <AthleteContentForm     
-                    handleChange={this.handleChange.bind(this)} 
-                    handleSubmit={this.handleSubmit.bind(this)}
-                    {...this.state.inputs} />
-                <BrandContentForm       
-                    handleBrandChange={this.handleBrandChange.bind(this)} 
-                    handleBrandSubmit={this.handleBrandSubmit.bind(this)}
-                    {...this.state.inputs} />
+                {form}
             </div>
         )
     }

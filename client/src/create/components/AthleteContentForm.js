@@ -29,13 +29,12 @@ function AthleteContentForm(props) {
                         onChange={props.handleChange}
                         value={props.eventCategory}/>
                 <input  placeholder="Event Date" 
-                        name="place" 
+                        name="eventDate" 
                         type="date"
                         onChange={props.handleChange}
                         value={props.eventDate}/>
                 <textarea   placeholder="Enter Details"    
                             name="details" 
-                            cols="30" 
                             rows="10"
                             onChange={props.handleChange}
                             value={props.details}>

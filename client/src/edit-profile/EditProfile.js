@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import { editProfile } from '../redux/auth';
 
 // COMPONENTS
-import EditProfileForm from './components/EditProfileForm';
+import EditAthleteForm from './components/EditAthleteForm';
+import EditBrandForm from './components/EditBrandForm';
 
 
 class EditProfile extends Component {
@@ -37,18 +38,29 @@ class EditProfile extends Component {
     }
 
     render() {
+
+        const userType = this.props.user.userType;
+        let form;
+        if (userType === "athlete") {
+            form = <EditAthleteForm     
+                        handleChange={this.handleChange.bind(this)} 
+                        handleSubmit={this.handleSubmit.bind(this)}
+                        {...this.state.inputs} />
+        } else {
+            form =  <EditBrandForm       
+                        handleBrandChange={this.handleBrandChange.bind(this)} 
+                        handleBrandSubmit={this.handleBrandSubmit.bind(this)}
+                        {...this.state.inputs} />
+        }
         return (
             <div>
                 <Link to="/">
                     <h6>Cancel</h6>
                 </Link>
-                <EditProfileForm
-                    handleChange={this.handleChange.bind(this)}
-                    handleSubmit={this.handleSubmit.bind(this)}
-                    {...this.state.inputs} />
+                {form}
             </div>
         )
-    }
+    }   
 }
 
 

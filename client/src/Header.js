@@ -18,9 +18,6 @@ import './app.css';
                 <Link to="/">
                     <h1>Athl33t</h1>
                 </Link>
-                <Link to="/onboard">
-                    <h4>onboard</h4>
-                </Link>
                 <button onClick={props.logout}>Logout</button>
                 <Link to="/profile">
                     <Avatar avatar={props.avatar} />
