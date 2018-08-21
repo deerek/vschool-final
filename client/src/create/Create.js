@@ -62,7 +62,7 @@ class Create extends Component {
     handleBrandSubmit(e) {
         e.preventDefault();
         this.props.addBrandContent(this.state.inputs)
-        .then(() => this.props.history.push("/"))
+            .then(() => this.props.history.push("/"))
     }
 
     render() {

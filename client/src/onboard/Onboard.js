@@ -6,6 +6,8 @@ import AppWelcome from './components/AppWelcome';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 
+// STYLES
+import './onboard.css';
 
 class Onboard extends Component {
     constructor() {
@@ -30,7 +32,7 @@ class Onboard extends Component {
     
     render() {
         return (
-            <div>
+            <div className="onboard-wrapper">
 
                 <Switch>
                     <Route exact path="/onboard" render={(props) => {

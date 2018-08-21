@@ -64,7 +64,7 @@ export function loadMyContents() {
 
 export function addContent(content) {
     return dispatch => {
-        brandAxios.post(contentUrl, content)
+        return brandAxios.post(contentUrl, content)
             .then(response => {
                 dispatch(loadContents());
             })

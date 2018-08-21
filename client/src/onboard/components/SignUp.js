@@ -74,19 +74,17 @@ class SignUp extends Component {
             return errMsg = "Server error!"
         }
         return (
-            <div className="sign-up-wrapper">
+            <div className="sign-up-header">
                 <Link to="/onboard/login">
                     <h6>Login</h6>
                 </Link>
-                <h3>Sign Up</h3>
-                <ul>
-                    <li>Athlete</li>
-                    <li>Brand</li>
-                </ul>
+            <div className="sign-up-wrapper">
+                <h2>Sign Up</h2>
                 <SignUpForm
                 handleChange={this.handleChange.bind(this)}
                 handleSubmit={this.handleSubmit.bind(this)}
                 {...this.state.inputs} />
+            </div>
             </div>
         )
     }
