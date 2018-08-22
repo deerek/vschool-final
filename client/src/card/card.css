@@ -1,9 +1,20 @@
 .card-wrapper {
     display: flex;
     flex-direction: column;
+    border-radius: 48px 0px 24px 0px;
+    border: 3px solid #FBEC00;
+    overflow: hidden;
+    transition: 300ms ease-in-out;
 }
 
-.card-wrapper > img {
+.card-wrapper:hover {
+    transform: scale(.96);
+    box-shadow: 0px 40px 56px -24px #FBEC00;
+    transition: 300ms ease-in-out;
+    border-radius: 32px 32px 16px 16px;
+}
+
+.card-media-wrapper > img {
     width: 100%;
 }
 
@@ -28,11 +39,85 @@
     background-color: aquamarine
 }
 
+.post-info-wrapper a {
+    width: 48px;
+    margin-left: 24px;
+}
+
 .post-info-wrapper {
-    background-color: cornsilk;
+    margin-top: -40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 24px;
+    padding-bottom: 16px;
+}
+
+.post-info-inner-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.post-info-inner-wrapper h3 {
+    font-size: 14pt;
+    margin-top: 16px;
+    margin-left: 32px;
+}
+
+.post-info-wrapper p {
+    margin-left: 104px;
+    font-weight: 400;
+}
+
+.post-info-inner-wrapper h5 {
+    margin-left: auto;
+    margin-right: 24px;
+    font-weight: 400;
+    color: #212121a1;
+    margin-top: 16px;
+    text-align: right;
+}
+
+
+
+/*****************      ATHLETE HEADER      *********************/
+
+.athlete-card-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.athlete-event-finish {
+    background-color: #FBEC00;
+    padding: 16px;
+}
+
+.athlete-event-info {
+    padding: 16px 24px;
+    background-color: #33D9EF;
+}
+
+.athlete-event-info h3 {
+    font-size: 2vw;
+}
+
+
+
+
+
+/*****************      BRAND HEADER      *********************/
+
+.brand-card-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.brand-card-header h1 {
+    background: #33D9EF;
     padding: 16px 24px;
 }
 
-.post-info-wrapper > h5, h6 {
-    margin-bottom: 8px;
+.brand-card-header h4 {
+    background-color: #FBEC00;
+    padding: 24px 24px 0;
 }

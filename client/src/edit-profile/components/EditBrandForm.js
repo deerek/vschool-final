@@ -14,7 +14,7 @@ function EditBrandForm(props) {
                 <img className="edit-avatar" src={props.avatar} alt=""/>
             </div>
             <form onSubmit={props.handleBrandSubmit} className="edit-brand-form" >
-                <div className="avatar-wrapper">
+                <div className="edit-avatar-wrapper">
                         <img className="edit-avatar" src={props.avatar} alt=""/>
                 </div>
                 <input  name="avatar" autocomplete="off"

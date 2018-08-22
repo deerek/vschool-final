@@ -95,14 +95,14 @@ class Profile extends Component {
                             <div className="profile-feed-wrapper">
                                 <ProfileFeed contents={contents} />
 
-                            <div className="profile-content-wrapper">
+                            {/* <div className="profile-content-wrapper">
                                 <div className="profile-user-info">
                                     <UserInfo public {...user}/>
-                                </div>
+                                </div> 
                                 <div className="profile-feed-wrapper">
                                     <ProfileFeed contents={contents} />
                                 </div>
-                            </div>
+                            </div> */}
                             </div>
                         </div>
                     ))
