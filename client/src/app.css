@@ -36,6 +36,10 @@ span, p, h6, h5, h4, h3, h2, h1 {
     font-family: Gilroy, sans-serif;
 }
 
+.app-wrapper {
+    padding-bottom: 150px;
+}
+
 .header-wrapper {
     display: flex;
     justify-content: space-between;
@@ -52,24 +56,78 @@ span, p, h6, h5, h4, h3, h2, h1 {
     font-size: 18pt;
 }
 
+/*****************************     DROPDOWN MENU    ***********************/
+
+/* Dropdown Button 
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+*/
+
+/* The container <div> - needed to position the dropdown content */
+.hover-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.hover-menu {
+    display: none;
+    position: absolute;
+    margin-left: -24px;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid #21212130;
+}
+
+/* Links inside the dropdown */
+.hover-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.hover-menu a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.hover-container:hover .hover-menu {display: block;}
+
+
 .avatar-wrapper {
-    height: 48px;
-    width: 48px;
-    /* background-image: url(https://source.unsplash.com/1600x900/?person,people,face,portrait); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    height: 120px;
+    width: 120px;
+    /* background-image: url(https://source.unsplash.com/1600x900/?person,people,face,portrait);
     background-size: cover;
-    background-position: center;
-    margin-right: 16px;
+    background-position: center; */
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
+    box-shadow: 0px 8px 0px rgb(251,236,0);
 }
 
 .avatar-wrapper img {
     height: 100%;
 }
 
+.avatar-wrapper:hover {
+    cursor: pointer;
+}
+
 .feed-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-column-gap: 32px;
     grid-row-gap: 48px;
     padding: 0 50px;
@@ -128,9 +186,47 @@ span, p, h6, h5, h4, h3, h2, h1 {
     box-shadow: 0px -32px 64px rgba(251, 234, 0, 0.5);
     color: #ffffff;
     border: 16px solid #fff;
+    animation-duration: 3s;
+    animation-name: createButtonBounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
 }
 
 .create-button img {
     max-height: 20%;
-    margin-top: 64px;
+    position: relative;
+    bottom: -60px;
+    animation-duration: 2.8s;
+    animation-name: movePlus;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
 }
+
+.create-button:hover {
+    transform: scale(.98);
+    box-shadow: 0px -32px 64px -16px rgba(251, 234, 0, 0.6);
+    animation-name: none;
+    transition: 300ms ease-in-out;
+}
+
+@keyframes createButtonBounce {
+    from {
+        bottom: -240px;
+    }
+  
+    to {
+        bottom: -200px;
+    }
+  }
+
+  @keyframes movePlus {
+    from {
+        bottom: -60px;
+    }
+  
+    to {
+        bottom: -80px;
+    }
+  }

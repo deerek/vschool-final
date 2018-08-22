@@ -1,3 +1,11 @@
+.profile-outer-wrapper {
+    padding-bottom: 150px;
+}
+
+.profile-wrapper {
+    padding-bottom: 150px;
+}
+
 .profile-content-wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -23,8 +31,41 @@
     display: flex;
 }
 
+.user-names-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+}
+
+.user-names-wrapper h3 {
+    font-size: 24pt;
+}
 
 
+.user-info-flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.profile-buttons-wrapper button {
+    display: block;
+    align-self: center;
+    width: 50%;
+    background-color: #FBEC00;
+    color: #212121;
+    border: 2px solid #33D9EF;
+    height: 48px;
+    font-family: Gilroy, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 24px;
+    padding-top: 6px;
+    margin-top: 24px;
+    box-shadow: 0px 16px 20px -8px rgba(251, 234, 0, 0.445);
+    transition: 200ms ease-in-out;
+}
 
 
 

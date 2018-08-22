@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { loadMyContents } from '../redux/aContent'
 import { loadMyContents as loadMyBrandContents } from '../redux/bContent'
 
+import './profile.css';
 
 // COMPONENTS
 import UserInfo from './components/UserInfo'

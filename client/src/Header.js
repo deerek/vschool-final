@@ -16,12 +16,17 @@ import './app.css';
         return (
             <div className="header-wrapper">
                 <Link to="/">
-                    <h1>Athl33t</h1>
+                    <h1>EXTREEEM</h1>
                 </Link>
-                <button onClick={props.logout}>Logout</button>
-                <Link to="/profile">
+                <div className="hover-container">
                     <Avatar imgUrl={props.user.avatar} />
-                </Link>
+                    <div className="hover-menu">
+                        <Link to="/profile">
+                            <h4>View Your Profile</h4>
+                        </Link>
+                        <a href="#" onClick={props.logout}>Logout</a>
+                    </div>
+                </div>
             </div>
             
         )

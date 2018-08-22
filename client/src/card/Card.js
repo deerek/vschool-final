@@ -37,16 +37,21 @@ import './card.css';
                     <img src={this.props.media} alt=""/>
                 </div>
                 <div className="post-info-wrapper">
-                    <Link to={`/profile/${this.props.contentType}/${this.props.user}`}>
-                        {/* { this.props.auth.user.userType === "athlete" && "brand" && <Avatar /> } */}
+                    <div className="post-info-inner-wrapper">
+                        <Link to={`/profile/${this.props.contentType}/${this.props.user}`}>
+                            {/* { this.props.auth.user.userType === "athlete" && "brand" && <Avatar /> } */}
+                        
+                            {/* "athlete" "brand" --> "athletes" "brands" */}
+                            <AvatarContainer className="avatar-card" userId={this.props.user} userType={this.props.contentType === "athlete" ? "athletes" : "brands"}/>
+                        </Link> 
                     
-                        {/* "athlete" "brand" --> "athletes" "brands" */}
-                        <AvatarContainer className="avatar-card" userId={this.props.user} userType={this.props.contentType === "athlete" ? "athletes" : "brands"}/>
-                    </Link> 
-                    <h3>{this.props.user}</h3>
-                    <h5>{moment(this.props.createdAt).fromNow("dddd, MMMM Do")} ago</h5>
-                </div>      
-            </div>
+                        <h3>{this.props.user}</h3>
+                        <h5>{moment(this.props.createdAt).fromNow("dddd, MMMM Do")}</h5>
+                    </div>
+                    <p>{this.props.details}</p>
+                </div>
+            </div>      
+            
         )
     }
 }
