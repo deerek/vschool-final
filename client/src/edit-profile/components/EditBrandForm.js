@@ -13,10 +13,7 @@ function EditBrandForm(props) {
             <div className="avatar-wrapper">
                 <img className="edit-avatar" src={props.avatar} alt=""/>
             </div>
-            <form onSubmit={props.handleBrandSubmit} className="edit-brand-form" action="">
-                <input  name="avatar" 
-
-            <form onSubmit={props.handleBrandSubmit} className="edit-brand-form" action="">
+            <form onSubmit={props.handleBrandSubmit} className="edit-brand-form" >
                 <div className="avatar-wrapper">
                         <img className="edit-avatar" src={props.avatar} alt=""/>
                 </div>

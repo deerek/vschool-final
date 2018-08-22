@@ -102,11 +102,11 @@ class Profile extends Component {
                                 <div className="profile-feed-wrapper">
                                     <ProfileFeed contents={contents} />
                                 </div>
-
+                            </div>
                             </div>
                         </div>
                     ))
-    }
+            }
 }
 
 export default connect(state => state, { loadMyContents, loadMyBrandContents, authenticate })(Profile);
