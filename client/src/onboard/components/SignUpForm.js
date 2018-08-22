@@ -12,32 +12,32 @@ function SignUpForm(props) {
                 Brand</label>
                 <input  name="firstName" 
                         placeholder="First Name" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.firstName}/>
                 <input  name="lastName" 
                         placeholder="Last Name"    
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.lastName}/>
                 <input  name="email" 
                         placeholder="Email" 
-                        type="email"
+                        type="email" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.email}/>
                 <input  name="sport" 
                         placeholder="Enter your sport" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.sport}/>
                 <input  name="username" 
                         placeholder="Username" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.username}/>
                 <input  name="password" 
                         placeholder="Password" 
-                        type="password"
+                        type="password" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.password}/>
                 
@@ -47,8 +47,9 @@ function SignUpForm(props) {
                 <label for="gender">
                         <input type="radio" name="gender" value="female" onChange={props.handleChange} checked={"female" === props.gender}/>
                 Female</label>
-                <button className="sign-up-button" type="submit">Create Account</button>
-                
+
+                <button className="sign-up-button" type="submit">Create Account</button>    
+                            
             </form>
         </div>
     )

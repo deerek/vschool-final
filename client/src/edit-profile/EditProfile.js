@@ -8,6 +8,7 @@ import { editProfile } from '../redux/auth';
 // COMPONENTS
 import EditAthleteForm from './components/EditAthleteForm';
 import EditBrandForm from './components/EditBrandForm';
+import EditProfileHeader from './components/EditProfileHeader';
 
 
 class EditProfile extends Component {
@@ -71,10 +72,8 @@ class EditProfile extends Component {
                         {...this.state.inputs} />
         }
         return (
-            <div>
-                <Link to="/">
-                    <h6>Cancel</h6>
-                </Link>
+            <div className="edit-profile-wrapper">
+                <EditProfileHeader />
                 {form}
             </div>
         )

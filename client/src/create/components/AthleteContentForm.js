@@ -5,41 +5,44 @@ import '../create.css';
 
 function AthleteContentForm(props) {
     return (
-        <div className="athlete-content-form-wrapper">
-            <h3>Athlete Post</h3>
-            <form onSubmit={props.handleSubmit}className="athlete-content-form" action="">
+        <div className="brand-content-form-wrapper">
+            <form onSubmit={props.handleSubmit}className="brand-content-form" action="">
+                <div className="media-preview">
+                    <img className="media-img" src={props.media} alt=""/>
+                </div>
                 <input  placeholder="Media URL" 
                         name="media" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.media}/>
                 <input  placeholder="Finishing Place" 
                         name="finishingPlace" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.finishingPlace}/>
                 <input  placeholder="Event Name" 
                         name="eventName" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.eventName}/>
                 <input  placeholder="Event Category" 
                         name="eventCategory" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.eventCategory}/>
                 <input  placeholder="Event Date" 
                         name="eventDate" 
-                        type="date"
+                        type="date" autocomplete="off"
                         onChange={props.handleChange}
                         value={props.eventDate}/>
                 <textarea   placeholder="Enter Details"    
                             name="details" 
                             rows="10"
+                            autocomplete="off"
                             onChange={props.handleChange}
                             value={props.details}>
                 </textarea>
-                <button className="create-button-athlete" type="submit">Create</button>
+                <button className="create-button-brand" type="submit">Create</button>
             </form>
         </div>
     )
