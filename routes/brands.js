@@ -1,6 +1,7 @@
 const express = require('express')
 const brandRouter = express.Router()
 const Brand = require('../models/brands')
+const Athlete = require('../models/athletes')
 
 
 brandRouter.route('/')
@@ -33,8 +34,21 @@ brandRouter.route('/:id')
             return res.send(foundBrand)
         })
     })
-
-
+brandRouter.route("/:victimId/follow/:stalkerId/:stalkerType")
+    .put((req, res) => {
+        const { victimId, stalkerId, stalkerType } = req.params;
+        //add the followerID to the athlete's followers array
+        Brand.findByIdAndUpdate(victimId, { $addToSet: { followers: stalkerId } }, { new: true})
+            .exec((err, updatedVictim) => {
+                //check the followerType
+                let Follower = stalkerType === "athlete" ? Athlete : Brand;
+                Follower.findByIdAndUpdate(stalkerId, { $addToSet: { following: victimId } }, { new: true })
+                    .exec((err, updatedStalker) => {
+                        if (err) return res.status(500).send(err);
+                        return res.status(200).send({ stalker: updatedStalker, victim: updatedVictim })
+                    })
+            })
+    })
 
 module.exports = brandRouter
 

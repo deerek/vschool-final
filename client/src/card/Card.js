@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
+import { connect } from 'react-redux'
+import AvatarContainer from '.../../../src/AvatarContainer';
+// import CardMedia from './components/CardMedia';
+// import CardInfo from './components/CardInfo';
+// import Profile from '../profile/Profile';
+
+//moment
+
+
 import moment from "moment";
 
 // COMPONENTS
@@ -9,7 +19,7 @@ import AthleteCardHeader from './components/AthleteCardHeader';
 // STYLES
 import './card.css';
 
-export default class Card extends Component {
+ class Card extends Component {
     render() {
         const contentType = this.props.contentType;
         let header;
@@ -25,13 +35,24 @@ export default class Card extends Component {
                 </div>
                 <img src={this.props.media} alt=""/>
                 <div className="post-info-wrapper">
+
+
+                    <h5>{moment(this.props.eventDate).format("dddd, MMMM Do")}</h5>
+                    {/* <h6>{props.auth.user.avatar}</h6> */}
+                    <h5>{this.props.eventDate}</h5>
+                    <p>{this.props.details}</p> 
+
                     <h6>{this.props.user}</h6>
+
                     <Link to={`/profile/${this.props.contentType}/${this.props.user}`}>
-                    <h6> {this.props.user} </h6>
-                    </Link>
-                    <p>{this.props.details}</p>  
+                    {/* { this.props.auth.user.userType === "athlete" && "brand" && <Avatar /> } */}
+                    
+                    {/* "athlete" "brand" --> "athletes" "brands" */}
+                    <AvatarContainer userId={this.props.user} userType={this.props.contentType === "athlete" ? "athletes" : "brands"}/>
+                    </Link> 
                 </div>      
             </div>
         )
     }
 }
+export default connect(state => state, {})(Card)

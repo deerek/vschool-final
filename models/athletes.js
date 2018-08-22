@@ -15,7 +15,7 @@ const athleteSchema = new Schema({
         type: String,
         required: false,
         unique: true
-    }, 
+    },
     gender: {
         type: String,
         required: false,
@@ -47,10 +47,12 @@ const athleteSchema = new Schema({
         default: false
     },
     followers: [{
-        type: Schema.Types.ObjectId
+        type: Schema.Types.ObjectId,
+        unique: true
     }],
     following: [{
-        type: Schema.Types.ObjectId
+        type: Schema.Types.ObjectId,
+        unique: true
     }],
     postsCount: Number,
     posts: [],
@@ -58,7 +60,7 @@ const athleteSchema = new Schema({
     likes: [],
     avatar: String,
     lastLogin: Date
-}, {timestamps: true})
+}, { timestamps: true })
 
 athleteSchema.pre("save", function (next) {
     var user = this;
@@ -70,7 +72,11 @@ athleteSchema.pre("save", function (next) {
     })
 })
 
-athleteSchema.methods.checkPassword = function(passwordAttempt, callback) {
+athleteSchema.pre("update", function(next){
+    next();
+})
+
+athleteSchema.methods.checkPassword = function (passwordAttempt, callback) {
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
         if (err) return callback(err);
         callback(null, isMatch);

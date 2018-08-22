@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadMyContents } from '../redux/aContent';
 import { loadMyContents as loadMyBrandContents } from '../redux/bContent';
+import { authenticate } from "../redux/auth";
 
 //AXIOS
 import axios from "axios";
@@ -31,7 +32,34 @@ class Profile extends Component {
             loading: true,
             err: null
         }
+        this.follow = this.follow.bind(this);
     }
+
+
+    follow() {
+        const { contentType, userId } = this.props.match.params;
+        const { _id, userType } = this.props.auth.user;
+        if (userId === _id) {
+            alert("You're not that cool bruh");
+            return;
+        };
+        let victimType = contentType === "athlete" ? "athletes" : "brands";
+        userAxios.put(`/api/${victimType}/${userId}/follow/${_id}/${userType}`)
+            .then(response => {
+                const { stalker, victim } = response.data;
+                this.setState({ user: victim });
+                return stalker;
+            })
+            .then(stalker => this.props.authenticate(stalker))
+            .catch(err => this.setState({ err}))
+        // send PUT request containing userID and athlete/brandID
+        // with response setState to contain the updated 'followers' array from the athlete/brand
+
+        //IN REDUX:
+        // update the logged in user with correct 'following' array
+    }
+
+
 
     componentDidMount() {
         const { contentType, userId } = this.props.match.params;
@@ -60,6 +88,13 @@ class Profile extends Component {
                     (
                         <div className="profile-outer-wrapper">
                             <Header />
+
+                            <div className="profile-user-info">
+                                <UserInfo public {...user} follow={this.follow} />
+                            </div>
+                            <div className="profile-feed-wrapper">
+                                <ProfileFeed contents={contents} />
+
                             <div className="profile-content-wrapper">
                                 <div className="profile-user-info">
                                     <UserInfo public {...user}/>
@@ -67,10 +102,11 @@ class Profile extends Component {
                                 <div className="profile-feed-wrapper">
                                     <ProfileFeed contents={contents} />
                                 </div>
+
                             </div>
                         </div>
                     ))
     }
 }
 
-export default connect(state => state, { loadMyContents, loadMyBrandContents })(Profile);
+export default connect(state => state, { loadMyContents, loadMyBrandContents, authenticate })(Profile);

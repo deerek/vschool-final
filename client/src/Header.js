@@ -20,7 +20,7 @@ import './app.css';
                 </Link>
                 <button onClick={props.logout}>Logout</button>
                 <Link to="/profile">
-                    <Avatar avatar={props.avatar} />
+                    <Avatar imgUrl={props.user.avatar} />
                 </Link>
             </div>
             
