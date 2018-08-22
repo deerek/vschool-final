@@ -1,27 +1,27 @@
 @font-face {
-    font-family: 'HGS3';
+    font-family: 'Nexa';
     font-style: normal;
     font-weight: 400;
     src:
-      local('HGS3 Regular'),
-      local('HGS3-Regular'),
-      url(./fonts/HGS3-Regular.otf) format('opentype'),
-      url(./fonts/HGS3-Regular.otf) format('opentype');
+      local('Gilroy Regular'),
+      local('Gilroy-Regular'),
+      url(./fonts/Gilroy-Light.otf) format('opentype'),
+      url(./fonts/Gilroy-Light.otf) format('opentype');
   }
   
   @font-face {
-    font-family: 'HGS3';
+    font-family: 'Gilroy';
     font-style: normal;
     font-weight: 700;
     src:
-      local('HGS3 Black'),
-      local('HGS3-Black'),
-      url(./fonts/HGS3-Black.otf) format('opentype'),
-      url(./fonts/HGS3-Black.otf) format('opentype');
+      local('Gilroy ExtraBold'),
+      local('Gilroy-ExtraBold'),
+      url(./fonts/Gilroy-ExtraBold.otf) format('opentype'),
+      url(./fonts/Gilroy-ExtraBold.otf) format('opentype');
   }
   
   html {
-    font-family: 'HGS3', sans-serif;
+    font-family: 'Gilroy', sans-serif;
   }
 
 * {
@@ -33,7 +33,7 @@
 }
 
 span, p, h6, h5, h4, h3, h2, h1 {
-    font-family: HGS3, sans-serif;
+    font-family: Gilroy, sans-serif;
 }
 
 .header-wrapper {
@@ -63,10 +63,14 @@ span, p, h6, h5, h4, h3, h2, h1 {
     clip-path: circle(50% at 50% 50%);
 }
 
+.avatar-wrapper img {
+    height: 100%;
+}
+
 .feed-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-column-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-column-gap: 32px;
     grid-row-gap: 48px;
     padding: 0 50px;
 }
@@ -109,16 +113,24 @@ span, p, h6, h5, h4, h3, h2, h1 {
 
 
 .create-button {
-    position: fixed;
-    bottom: 64px;
-    width: 96px;
-    height: 96px;
-    left: 50%;
-    margin-left: -48px;
-    border-radius: 48px;
-    background-color: blueviolet;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    position: fixed;
+    bottom: -240px;
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    margin-left: -200px;
+    border-radius: 400px;
+    background: rgb(251,236,0);
+    background: linear-gradient(90deg, rgba(251,236,0,1) 0%, rgba(51,217,239,1) 100%);
+    box-shadow: 0px -32px 64px rgba(251, 234, 0, 0.5);
     color: #ffffff;
+    border: 16px solid #fff;
+}
+
+.create-button img {
+    max-height: 20%;
+    margin-top: 64px;
 }

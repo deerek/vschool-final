@@ -28,7 +28,7 @@
     align-self: center;
     color: #212121;
     height: 48px;
-    font-family: HGS3, sans-serif;
+    font-family: Gilroy, sans-serif;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -79,12 +79,12 @@
 /******************     SIGN UP     ******************/
 
 input {
-    font-family: HGS3, sans-serif;
+    font-family: Gilroy, sans-serif;
     font-size: 11pt;
 }
 
 input::placeholder {
-    font: 400 9pt HGS3 !important;
+    font: 400 9pt Gilroy !important;
     /* color: #2121217c; */
 }
 
@@ -141,7 +141,7 @@ input::placeholder {
 }
 
 .sign-up-form label {
-    font-family: HGS3, sans-serif;
+    font-family: Gilroy, sans-serif;
 }
 
 .sign-up-form input[type=text] {
@@ -206,7 +206,7 @@ input::placeholder {
     color: #212121;
     border: 2px solid #33D9EF;
     height: 48px;
-    font-family: HGS3, sans-serif;
+    font-family: Gilroy, sans-serif;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -277,7 +277,7 @@ input::placeholder {
 }
 
 .login-form label {
-    font-family: HGS3, sans-serif;
+    font-family: Gilroy, sans-serif;
 }
 
 .login-form input[type=text] {
@@ -344,7 +344,7 @@ input::placeholder {
     color: #212121;
     border: 2px solid #33D9EF;
     height: 48px;
-    font-family: HGS3, sans-serif;
+    font-family: Gilroy, sans-serif;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;

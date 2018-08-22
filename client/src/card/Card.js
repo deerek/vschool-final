@@ -33,23 +33,18 @@ import './card.css';
                 <div className="card-header">
                     {header}
                 </div>
-                <img src={this.props.media} alt=""/>
+                <div className="card-media-wrapper">
+                    <img src={this.props.media} alt=""/>
+                </div>
                 <div className="post-info-wrapper">
-
-
-                    <h5>{moment(this.props.eventDate).format("dddd, MMMM Do")}</h5>
-                    {/* <h6>{props.auth.user.avatar}</h6> */}
-                    <h5>{this.props.eventDate}</h5>
-                    <p>{this.props.details}</p> 
-
-                    <h6>{this.props.user}</h6>
-
                     <Link to={`/profile/${this.props.contentType}/${this.props.user}`}>
-                    {/* { this.props.auth.user.userType === "athlete" && "brand" && <Avatar /> } */}
+                        {/* { this.props.auth.user.userType === "athlete" && "brand" && <Avatar /> } */}
                     
-                    {/* "athlete" "brand" --> "athletes" "brands" */}
-                    <AvatarContainer userId={this.props.user} userType={this.props.contentType === "athlete" ? "athletes" : "brands"}/>
+                        {/* "athlete" "brand" --> "athletes" "brands" */}
+                        <AvatarContainer className="avatar-card" userId={this.props.user} userType={this.props.contentType === "athlete" ? "athletes" : "brands"}/>
                     </Link> 
+                    <h3>{this.props.user}</h3>
+                    <h5>{moment(this.props.createdAt).fromNow("dddd, MMMM Do")} ago</h5>
                 </div>      
             </div>
         )

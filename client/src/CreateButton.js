@@ -8,7 +8,7 @@ function CreateButton(props) {
     return (
         <Link to="/create">
             <div className="create-button">
-                <h1>+</h1>
+                <img src={require("./images/plusBlack.png")} alt=""/>
             </div>
         </Link>
     )

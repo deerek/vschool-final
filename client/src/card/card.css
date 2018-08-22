@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-.card-wrapper > img {
+.card-media-wrapper > img {
     width: 100%;
 }
 
@@ -29,10 +29,39 @@
 }
 
 .post-info-wrapper {
+    display: flex;
+    align-items: center;
     background-color: cornsilk;
-    padding: 16px 24px;
+    padding-left: 24px;
 }
 
-.post-info-wrapper > h5, h6 {
-    margin-bottom: 8px;
+.post-info-wrapper h5 {
+    margin-left: auto;
+    margin-right: 24px;
+    font-weight: Regular;
+    color: #212121a1;
+}
+
+.avatar-card {
+    margin-top: -48px;
+}
+
+
+
+/*****************      ATHLETE HEADER      *********************/
+
+.athlete-card-header {
+    display: flex;
+    align-items: flex-end;
+}
+
+.athlete-event-finish {
+    padding: 16px 24px;
+    background-color: #FBEC00;
+}
+
+.athlete-event-info {
+    padding: 16px 24px;
+    background-color: #33D9EF;
+    width: 100%;
 }

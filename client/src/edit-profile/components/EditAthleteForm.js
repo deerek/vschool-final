@@ -9,7 +9,7 @@ const defaultAvatar = require("../../images/defaultAvatar.png")
 function EditAthleteForm(props) {
     return (
         <div className="edit-athlete-form-wrapper">     
-                <div className="avatar-wrapper">
+                <div className="edit-avatar-wrapper">
                         <img className="edit-avatar" src={props.avatar || defaultAvatar} alt=""/>
                 </div>           
             <form onSubmit={props.handleSubmit} className="edit-athlete-form" action="">
