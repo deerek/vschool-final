@@ -8,16 +8,25 @@ import '../edit-profile.css'
 function EditBrandForm(props) {
     return (
         <div className="edit-brand-form-wrapper">
+
             <h1>{props.userType}</h1>
             <div className="avatar-wrapper">
                 <img className="edit-avatar" src={props.avatar} alt=""/>
             </div>
             <form onSubmit={props.handleBrandSubmit} className="edit-brand-form" action="">
                 <input  name="avatar" 
+
+            <form onSubmit={props.handleBrandSubmit} className="edit-brand-form" action="">
+                <div className="avatar-wrapper">
+                        <img className="edit-avatar" src={props.avatar} alt=""/>
+                </div>
+                <input  name="avatar" autocomplete="off"
+
                         placeholder="Avatar URL" 
                         type="text"
                         onChange={props.handleBrandChange}
                         value={props.avatar}/>
+
                 <input  name="companyName" 
                         placeholder="Company Name" 
                         type="text"
@@ -49,7 +58,49 @@ function EditBrandForm(props) {
                         type="text"
                         onChange={props.handleBrandChange}
                         value={props.bio}/>
+
+                <div className="account-info">
+                        <h4>Account Info</h4>
+                        <input  name="username" 
+                                placeholder="Username" 
+                                type="text" autocomplete="off"
+                                onChange={props.handleBrandChange}
+                                value={props.username}/>
+                        <input  name="email" 
+                                placeholder="Email" 
+                                type="text" autocomplete="off"
+                                onChange={props.handleBrandChange}
+                                value={props.email}/>
+                        <div className="bio-input">
+                                <input  name="bio" 
+                                        placeholder="Bio" 
+                                        type="text"
+                                        onChange={props.handleBrandChange}
+                                        value={props.bio}/>
+                        </div>
+                </div>
+                <div className="brand-rep-info">
+                        <h4>Brand Rep Info</h4>
+                        <input  name="companyName" 
+                                placeholder="Company Name" 
+                                type="text" autocomplete="off"
+                                onChange={props.handleBrandChange}
+                                value={props.companyName}/>
+                        <input  name="firstName" 
+                                placeholder="Rep First Name" 
+                                type="text" autocomplete="off"
+                                onChange={props.handleBrandChange}
+                                value={props.firstName}/>
+                        <input  name="lastName" 
+                                placeholder="Rep Last Name" 
+                                type="text" autocomplete="off"
+                                onChange={props.handleBrandChange}
+                                value={props.lastName}/>
+                </div>
+
+
                 <button type="submit">Save</button>
+
             </form>
         </div>
     )

@@ -35,6 +35,7 @@ class Profile extends Component {
         this.follow = this.follow.bind(this);
     }
 
+
     follow() {
         const { contentType, userId } = this.props.match.params;
         const { _id, userType } = this.props.auth.user;
@@ -57,6 +58,8 @@ class Profile extends Component {
         //IN REDUX:
         // update the logged in user with correct 'following' array
     }
+
+
 
     componentDidMount() {
         const { contentType, userId } = this.props.match.params;
@@ -83,13 +86,23 @@ class Profile extends Component {
                     <div>Sorry there was a problem getting your data. What a loser</div>
                     :
                     (
-                        <div className="profile-wrapper">
+                        <div className="profile-outer-wrapper">
                             <Header />
+
                             <div className="profile-user-info">
                                 <UserInfo public {...user} follow={this.follow} />
                             </div>
                             <div className="profile-feed-wrapper">
                                 <ProfileFeed contents={contents} />
+
+                            <div className="profile-content-wrapper">
+                                <div className="profile-user-info">
+                                    <UserInfo public {...user}/>
+                                </div>
+                                <div className="profile-feed-wrapper">
+                                    <ProfileFeed contents={contents} />
+                                </div>
+
                             </div>
                         </div>
                     ))

@@ -6,31 +6,33 @@ import '../create.css';
 function BrandContentForm(props) {
     return (
         <div className="brand-content-form-wrapper">
-            <h3>Brand Post</h3>
             <form onSubmit={props.handleBrandSubmit}className="brand-content-form" action="">
+                <div className="media-preview">
+                    <img className="media-img" src={props.media} alt=""/>
+                </div>
                 <input  placeholder="Media URL" 
                         name="media" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleBrandChange}
                         value={props.media}/>
                 <input  placeholder="Event Name" 
                         name="eventName" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleBrandChange}
                         value={props.eventName}/>
                 <input  placeholder="Event Category" 
                         name="eventCategory" 
-                        type="text"
+                        type="text" autocomplete="off"
                         onChange={props.handleBrandChange}
                         value={props.eventCategory}/>
                 <input  placeholder="Event Date" 
                         name="eventDate" 
-                        type="date"
+                        type="date" autocomplete="off"
                         onChange={props.handleBrandChange}
                         value={props.eventDate}/>
                 <textarea   placeholder="Enter Details"    
                             name="details" 
-                            cols="30" 
+                            autocomplete="off"
                             rows="10"
                             onChange={props.handleBrandChange}
                             value={props.details}>
