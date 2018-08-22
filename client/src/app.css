@@ -1,3 +1,29 @@
+@font-face {
+    font-family: 'HGS3';
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local('HGS3 Regular'),
+      local('HGS3-Regular'),
+      url(./fonts/HGS3-Regular.otf) format('opentype'),
+      url(./fonts/HGS3-Regular.otf) format('opentype');
+  }
+  
+  @font-face {
+    font-family: 'HGS3';
+    font-style: normal;
+    font-weight: 700;
+    src:
+      local('HGS3 Black'),
+      local('HGS3-Black'),
+      url(./fonts/HGS3-Black.otf) format('opentype'),
+      url(./fonts/HGS3-Black.otf) format('opentype');
+  }
+  
+  html {
+    font-family: 'HGS3', sans-serif;
+  }
+
 * {
     margin: 0;
     -webkit-margin-before: 0;
@@ -7,7 +33,7 @@
 }
 
 span, p, h6, h5, h4, h3, h2, h1 {
-    font-family: Heebo, sans-serif;
+    font-family: HGS3, sans-serif;
 }
 
 .header-wrapper {

@@ -1,3 +1,37 @@
+.edit-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: #33D9EF;
+    margin-bottom: 24px;
+}
+
+.edit-profile-header h2 {
+    margin-left: -32px; 
+}
+
+.edit-profile-header p {
+    opacity: 0;
+}
+
+.edit-profile-header a {
+    text-decoration: none;
+    color: #212121;
+    display: flex;
+    align-items: center;
+
+}
+
+.edit-profile-header h6 {
+    padding: 12px 16px 9px;
+    border: 2px solid #FBEC00;
+    text-transform: uppercase;
+    border-radius: 24px;
+}
+
+
+
 .edit-athlete-form {
     display: flex;
     flex-direction: column;
@@ -10,6 +44,7 @@
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
     box-shadow: 0px 8px 16px #00000025;
+    margin-bottom: 24px;
 }
 
 .avatar-wrapper > img {
@@ -22,70 +57,180 @@
 }
 
 
+/*********************  BRAND STUFF     ***********************/
 
-/******************************* RADIO BUTTONS ***************************/
+.edit-brand-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
 
-/* Customize the label (the container) */
-.radio-container {
-    font-family: Heebo, sans-serif;
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
+.edit-brand-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+}
+
+.edit-brand-form h4 {
+    margin-bottom: 8px;
+}
+
+.edit-brand-form input {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.edit-brand-form div {
+    margin-bottom: 24px;
+}
+
+.account-info {
+    margin-top: 24px;
+    width: 100%;
+}
+
+.brand-rep-info {
+    width: 100%;
+}
+
+.edit-brand-form input {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    padding: 8px;
+    padding-top: 10px;
+    box-shadow: 0px 8px 16px #21212125;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+}
+
+.edit-brand-form input:hover {
+    border: 1px solid #999999;
+    box-shadow: 0px 12px 8px -8px #21212125;
+}
+
+.edit-brand-form input:focus {
+    border: 1px solid #FBEC00;
+    box-shadow: 0px 12px 8px -8px rgba(251, 234, 0, 0.404);
+    outline: none;
+}
+
+.edit-brand-form button {
+    width: 50%;
+    background-color: #FBEC00;
+    color: #212121;
+    border: 2px solid #33D9EF;
+    height: 48px;
+    font-family: HGS3, sans-serif;
     font-size: 14px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    /* align-self: flex-start; */
-  }
-  
-  /* Hide the browser's default radio button */
-  .radio-container input {
-    position: absolute;
-    opacity: 0;
-  }
-  
-  /* Create a custom radio button */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 24px;
-    width: 24px;
-    background-color: #eee;
-    border-radius: 50%;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .radio-container:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-  
-  /* When the radio button is checked, add a blue background */
-  .radio-container input:checked ~ .checkmark {
-    background-color: #2196F3;
-  }
-  
-  /* Create the indicator (the dot/circle - hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the indicator (dot/circle) when checked */
-  .radio-container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  /* Style the indicator (dot/circle) */
-  .radio-container .checkmark:after {
-    top: 8px;
-    left: 8px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-  }
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 24px;
+    padding-top: 6px;
+    margin-top: 24px;
+    box-shadow: 0px 16px 20px -8px rgba(251, 234, 0, 0.445);
+    transition: 200ms ease-in-out;
+}
+
+.edit-brand-form button:hover {
+    cursor: pointer;
+    transform: scale(.98);
+    box-shadow: 0px 18px 24px -16px rgba(51, 217, 239, 0.479);
+    transition: 200ms ease-in-out;
+}
+
+.edit-brand-form button:focus {
+    outline: none;
+}
+
+
+
+/*********************      ATHLETE FORM STUFF  ***********************/
+
+.edit-athlete-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+
+.edit-athlete-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
+    width: 50vw;
+}
+
+.edit-athlete-form h4 {
+    margin-bottom: 8px;
+}
+
+.edit-athlete-form input {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.edit-athlete-form div {
+    margin-bottom: 24px;
+}
+
+.edit-athlete-form input[type=text] {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    padding: 8px;
+    padding-top: 10px;
+    box-shadow: 0px 8px 16px #21212125;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+}
+
+.edit-athlete-form input[type=text]:hover {
+    border: 1px solid #999999;
+    box-shadow: 0px 12px 8px -8px #21212125;
+}
+
+.edit-athlete-form input[type=text]:focus {
+    border: 1px solid #FBEC00;
+    box-shadow: 0px 12px 8px -8px rgba(251, 234, 0, 0.404);
+    outline: none;
+}
+
+.edit-athlete-form button {
+    width: 50%;
+    background-color: #FBEC00;
+    color: #212121;
+    border: 2px solid #33D9EF;
+    height: 48px;
+    font-family: HGS3, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 24px;
+    padding-top: 6px;
+    margin-top: 24px;
+    box-shadow: 0px 16px 20px -8px rgba(251, 234, 0, 0.445);
+    transition: 200ms ease-in-out;
+}
+
+.edit-athlete-form button:hover {
+    cursor: pointer;
+    transform: scale(.98);
+    box-shadow: 0px 18px 24px -16px rgba(51, 217, 239, 0.479);
+    transition: 200ms ease-in-out;
+}
+
+.edit-athlete-form button:focus {
+    outline: none;
+}
+
+.gender-wrapper label {
+    display: flex;
+    margin-right: 24px;
+}
+
+.gender-wrapper input {
+    margin-right: 24px;
+}

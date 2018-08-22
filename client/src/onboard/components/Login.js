@@ -60,16 +60,18 @@ class Login extends Component {
             return errMsg = "Server error!";
         }
         return (
-            <div className="login-wrapper">
+            <div className="login-header">
                 <Link to="/onboard/sign-up">
                     <h6>Sign Up</h6>
                 </Link>
-                <h3>Login</h3>
-                <LoginForm
+                <div className="login-wrapper">
+                    <h2>Login</h2>
+                    <LoginForm
                     handleChange={this.handleChange.bind(this)}
                     handleSubmit={this.handleSubmit.bind(this)}
                     errMsg={errMsg}
                     {...this.state.inputs} />
+            </div>
             </div>
         )
     }

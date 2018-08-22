@@ -8,6 +8,7 @@ import { editProfile } from '../redux/auth';
 // COMPONENTS
 import EditAthleteForm from './components/EditAthleteForm';
 import EditBrandForm from './components/EditBrandForm';
+import EditProfileHeader from './components/EditProfileHeader';
 
 
 class EditProfile extends Component {
@@ -31,7 +32,25 @@ class EditProfile extends Component {
         })
     }
 
+    handleBrandChange(e) {
+        e.persist();
+        this.setState((prevState) => {
+            return {
+                inputs: {
+                    ...prevState.inputs,
+                    [e.target.name]: e.target.value
+                }
+            }
+        })
+    }
+
     handleSubmit(e) {
+        e.preventDefault();
+        this.props.editProfile(this.state.inputs)
+            .then(() => this.props.history.push("/profile"))
+    }
+
+    handleBrandSubmit(e) {
         e.preventDefault();
         this.props.editProfile(this.state.inputs)
             .then(() => this.props.history.push("/profile"))
@@ -53,10 +72,8 @@ class EditProfile extends Component {
                         {...this.state.inputs} />
         }
         return (
-            <div>
-                <Link to="/">
-                    <h6>Cancel</h6>
-                </Link>
+            <div className="edit-profile-wrapper">
+                <EditProfileHeader />
                 {form}
             </div>
         )

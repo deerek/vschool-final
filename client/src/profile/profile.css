@@ -1,27 +1,14 @@
-.profile-wrapper {
+.profile-content-wrapper {
     display: grid;
-    grid-template-areas: 
-    "h h h h"
-    "u f f f";
+    grid-template-columns: 1fr 2fr;
 }
 
-.profile-wrapper > .header-wrapper {
-    grid-area: h;
-}
-
-.profile-wrapper > .profile-user-info {
-    grid-area: u;
-}
-
-.profile-wrapper > .profile-feed-wrapper {
-    grid-area: f;
-}
 
 .profile-user-info {
     display: flex;
     flex-direction: column;
     padding: 50px;
-    /* align-items: center; */
+    align-items: center;
 }
 
 .user-info-wrapper {
@@ -32,24 +19,28 @@
     /* padding: 50px; */
 }
 
-.user-info-flex {
+.profile-buttons-wrapper {
     display: flex;
-    align-items: center;
 }
 
-.user-info-wrapper > p {
-    /* text-align: center; */
-    margin: 16px 0
-}
 
-.user-names-wrapper {
+
+
+
+
+
+
+
+/**********************     STUFF FOR SPONSPORS AND FOLLOWS ******************/
+
+/* .user-names-wrapper {
     display: flex;
     flex-direction: column;
 }
 
 .follows-bar-wrapper {
     display: flex;
-    /* width: 500px; */
+    width: 500px;
     justify-content: space-around;
     margin-bottom: 32px;
 }
@@ -60,10 +51,10 @@
 }
 
 .sponsors-bar-wrapper > h3 {
-    /* text-align: center; */
+    text-align: center;
     margin-bottom: 16px;
 }
 
 .sponsors-carousel {
     display: flex;
-}
+} */

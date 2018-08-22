@@ -33,8 +33,6 @@ class Profile extends Component {
         }
     }
 
-
-
     componentDidMount() {
         const { contentType, userId } = this.props.match.params;
         const userType = contentType === "brand" ? "brands" : "athletes";
@@ -60,13 +58,15 @@ class Profile extends Component {
                     <div>Sorry there was a problem getting your data. What a loser</div>
                     :
                     (
-                        <div className="profile-wrapper">
+                        <div className="profile-outer-wrapper">
                             <Header />
-                            <div className="profile-user-info">
-                                <UserInfo public {...user}/>
-                            </div>
-                            <div className="profile-feed-wrapper">
-                                <ProfileFeed contents={contents} />
+                            <div className="profile-content-wrapper">
+                                <div className="profile-user-info">
+                                    <UserInfo public {...user}/>
+                                </div>
+                                <div className="profile-feed-wrapper">
+                                    <ProfileFeed contents={contents} />
+                                </div>
                             </div>
                         </div>
                     ))
