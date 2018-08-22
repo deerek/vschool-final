@@ -25,10 +25,7 @@ class MyProfile extends Component {
             <div className="profile-wrapper">
                 <Header />
                 <div className="profile-user-info">
-                    <UserInfo   firstName={this.props.auth.user.firstName} 
-                                lastName={this.props.auth.user.lastName} 
-                                username={this.props.auth.user.username} 
-                                bio={this.props.auth.user.bio} />
+                    <UserInfo   {...this.props.auth.user} />
                 </div>
                 <div className="profile-feed-wrapper">
                     <ProfileFeed contents={this.props.auth.user.userType === "athlete" ? this.props.aContent : this.props.bContent}/>

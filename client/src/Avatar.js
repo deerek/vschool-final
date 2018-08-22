@@ -5,14 +5,12 @@ import { connect } from 'react-redux';
 // import './app.css';
 import defaultPhoto from "./images/defaultAvatar.png";
 
-class Avatar extends Component {
-    render() {
-        return (
-            <div  className="avatar-wrapper">
-                <img src={this.props.user.avatar || defaultPhoto} alt=""/>
-            </div>
-        )
-    }
+function Avatar(props) {
+    return (
+        <div className="avatar-wrapper">
+            <img src={props.imgUrl || defaultPhoto} alt="" />
+        </div>
+    )
 }
 
-export default connect(state => state.auth, {})(Avatar);
+export default Avatar;

@@ -31,7 +31,25 @@ class EditProfile extends Component {
         })
     }
 
+    handleBrandChange(e) {
+        e.persist();
+        this.setState((prevState) => {
+            return {
+                inputs: {
+                    ...prevState.inputs,
+                    [e.target.name]: e.target.value
+                }
+            }
+        })
+    }
+
     handleSubmit(e) {
+        e.preventDefault();
+        this.props.editProfile(this.state.inputs)
+            .then(() => this.props.history.push("/profile"))
+    }
+
+    handleBrandSubmit(e) {
         e.preventDefault();
         this.props.editProfile(this.state.inputs)
             .then(() => this.props.history.push("/profile"))

@@ -34,17 +34,21 @@ const brandSchema = new Schema({
         type: Boolean,
         default: false
     },
-    followersCount: Number,
-    followers: [],
-    followingCount: Number,
-    following: [],
+    followers: [{
+        type: Schema.Types.ObjectId,
+        unique: true
+    }],
+    following: [{
+        type: Schema.Types.ObjectId,
+        unique: true
+    }],
     postsCount: Number,
     posts: [],
     likesCount: Number,
     likes: [],
     avatar: String,
     lastLogin: Date
-}, {timestamps: true})
+}, { timestamps: true })
 
 brandSchema.pre("save", function (next) {
     var user = this;
@@ -56,7 +60,7 @@ brandSchema.pre("save", function (next) {
     })
 })
 
-brandSchema.methods.checkPassword = function(passwordAttempt, callback) {
+brandSchema.methods.checkPassword = function (passwordAttempt, callback) {
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
         if (err) return callback(err);
         callback(null, isMatch);
